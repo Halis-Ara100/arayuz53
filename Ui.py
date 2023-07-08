@@ -1,5 +1,4 @@
-import sys
-import cv2
+
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
 import numpy as np
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -13,6 +12,7 @@ class Labels(QWidget):
     def __init__(self):
         super().__init__()
         self.resize(1024, 600)
+        #self.setWindowFlags(Qt.FramelessWindowHint)
         self.mapWidget = MapWidget()
         self.layout = QVBoxLayout()
         self.layout.addWidget(self.mapWidget)
@@ -47,7 +47,6 @@ class Labels(QWidget):
         self.yukseklikPng = QPixmap('png/yukseklik.png')
         self.evPng = QPixmap('png/uzaklık.png')
         self.saatPng = QPixmap('png/saat.png')
-        self.kapatPng = QPixmap('png/kapat.png')
         self.logoPng = QPixmap('png/flyshark.png')
 
         self.pilResim = QLabel(self)
@@ -58,7 +57,7 @@ class Labels(QWidget):
         self.uydu.setGeometry(795, 10, 40, 32)
         self.KumSaat = QLabel(self)
         self.KumSaat.setPixmap(self.KumSaatPng)
-        self.KumSaat.setGeometry(535, 0, 50, 50)
+        self.KumSaat.setGeometry(485, 0, 50, 50)
         self.HizIcon = QLabel(self)
         self.HizIcon.setPixmap(self.HizPng)
         self.HizIcon.setGeometry(10, 550, 45, 45)
@@ -71,9 +70,6 @@ class Labels(QWidget):
         self.SaatIcon = QLabel(self)
         self.SaatIcon.setPixmap(self.saatPng)
         self.SaatIcon.setGeometry(590, 552, 45, 45)
-        self.KapatIcon = QLabel(self)
-        self.KapatIcon.setPixmap(self.kapatPng)
-        self.KapatIcon.setGeometry(965, 2, 45, 45)
 
         self.flyshark = QLabel(self)
         self.flyshark.setPixmap(self.logoPng)
@@ -103,9 +99,9 @@ class Labels(QWidget):
 
         self.LabelBatarya.setGeometry(905, 10, 60, 30)
         self.LabelUydu.setGeometry(830, 0, 20, 20)
-        self.LabelKalanSure.setGeometry(585, 10, 100, 30)
-        self.LabelArm.setGeometry(335, 10, 170, 30)
-        self.LabelMode.setGeometry(695, 10, 100, 30)
+        self.LabelKalanSure.setGeometry(530, 10, 100, 30)
+        self.LabelArm.setGeometry(280, 10, 170, 30)
+        self.LabelMode.setGeometry(650, 10, 100, 30)
 
         self.LabelHiz.setGeometry(60, 560, 120, 30)
         self.LabelYukseklik.setGeometry(240, 560, 230, 30)
